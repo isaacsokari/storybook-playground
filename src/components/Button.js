@@ -1,6 +1,18 @@
 import styled from 'styled-components';
+import { applyStyleModifiers } from 'styled-components-modifiers';
 
 import { defaultTheme, typeScale } from '../utils';
+
+const BUTTON_MODIFIERS = {
+  small: () => `
+    font-size: ${typeScale.helperText};
+    padding: 8px;
+  `,
+  large: () => `
+    font-size: ${typeScale.header5};
+    padding: 16px 24px;
+  `,
+};
 
 const Button = styled.button`
   border-radius: 2px;
@@ -34,6 +46,8 @@ const Button = styled.button`
     color: ${defaultTheme.disabled};
     border: none;
   }
+
+  ${applyStyleModifiers(BUTTON_MODIFIERS)}
 `;
 
 export const PrimaryButton = styled(Button)`
@@ -46,6 +60,8 @@ export const PrimaryButton = styled(Button)`
     color: ${defaultTheme.textOnDisabled};
     border-color: ${defaultTheme.disabled};
   }
+
+  ${applyStyleModifiers(BUTTON_MODIFIERS)}
 `;
 
 export const SecondaryButton = styled(Button)`
@@ -56,10 +72,14 @@ export const SecondaryButton = styled(Button)`
   &:disabled {
     border: 2px solid ${defaultTheme.disabled};
   }
+
+  ${applyStyleModifiers(BUTTON_MODIFIERS)}
 `;
 
 export const TertiaryButton = styled(Button)`
   background-color: white;
   border: none;
   color: ${defaultTheme.primaryColor};
+
+  ${applyStyleModifiers(BUTTON_MODIFIERS)}
 `;
