@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
 
-import { PrimaryButton, SignUpModal } from './components/';
+import { PrimaryButton, SignInModal, SignUpModal } from './components/';
 import { GlobalStyle, darkTheme, defaultTheme } from './utils';
 
 const App = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showModalTwo, setShowModalTwo] = useState(false);
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : defaultTheme}>
@@ -24,7 +25,12 @@ const App = () => {
       <PrimaryButton
         style={{ margin: '0 16px' }}
         onClick={() => setShowModal(!showModal)}>
-        Show modal
+        Show Sign Up Modal
+      </PrimaryButton>
+      <PrimaryButton
+        style={{ margin: '0 16px' }}
+        onClick={() => setShowModalTwo(!showModalTwo)}>
+        Show Sign In Modal
       </PrimaryButton>
       <div
         style={{
@@ -39,6 +45,7 @@ const App = () => {
         }}>
         <SignUpModal showModal={showModal} setShowModal={setShowModal} />
 
+        <SignInModal showModal={showModalTwo} setShowModal={setShowModalTwo} />
         <GlobalStyle />
       </div>
     </ThemeProvider>
