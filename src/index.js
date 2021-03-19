@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
+
 import { PrimaryButton, SignUpModal } from './components/';
 import { GlobalStyle, darkTheme, defaultTheme } from './utils';
 
